@@ -7,7 +7,7 @@ variable "resource_group_name" {
 }
 
 variable "vnet-name" {
-  type = string
+  type    = string
   default = "vnet-clau"
 }
 
@@ -22,11 +22,19 @@ variable "subnet-name" {
   type = string
 }
 
-variable "priority-port" {
-  type = map
-  default = {
-    100 : "80"
-    101 : "90"
-  }
+variable "security_rules" {
+  type = list(object({
+    priority  = number
+    name      = string
+    direction = optional(string, "Inbound")
+    access    = optional(string, "Allow")
+    protocol  = optional(string, "Tcp")
 
+    source_port_range = optional(string)
+
+    destination_port_range     = optional(string)
+    source_address_prefix      = optional(string)
+    destination_address_prefix = optional(string)
+  }))
+  default = []
 }

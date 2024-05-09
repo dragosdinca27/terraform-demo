@@ -1,5 +1,5 @@
 
-variable "location"  {
+variable "location" {
   type = string
 }
 
@@ -14,3 +14,5 @@ variable "subnet-name" {
 variable "subnet-address" {
   type = list(string)
 }
+
+variable "security_rules" {}
