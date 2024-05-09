@@ -7,16 +7,15 @@ terraform {
     }
   }
 
-#   backend "azurerm" {
-#     resource_group_name  = azurerm_resource_group.rg.name
-#     storage_account_name = var.storage_account_name
-#     container_name       = var.container_name
-#     key                  = var.key
-#   }
+  backend "azurerm" {
+    resource_group_name  = "claudiu-terraform"
+    storage_account_name = "claudiutfstate"
+    container_name       = "claudiustatefiles"
+    key                  = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
-
   features {}
 }
 

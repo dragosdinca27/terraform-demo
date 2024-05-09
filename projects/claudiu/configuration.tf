@@ -6,8 +6,9 @@ resource "azurerm_resource_group" "rg" {
 module "vnet1" {
   source = "../../modules/virtual-network"
 
-
-  address_space = var.address_space
   location = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
+  vnet-address-space = var.vnet-address-space
+  subnet-address     = var.subnet-address
+  subnet-name        = var.subnet-name
 }
