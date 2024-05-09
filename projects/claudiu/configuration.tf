@@ -11,4 +11,5 @@ module "vnet1" {
   vnet-address-space = var.vnet-address-space
   subnet-address     = var.subnet-address
   subnet-name        = var.subnet-name
+
 }

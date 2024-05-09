@@ -21,3 +21,12 @@ variable "subnet-address" {
 variable "subnet-name" {
   type = string
 }
+
+variable "priority-port" {
+  type = map
+  default = {
+    100 : "80"
+    101 : "90"
+  }
+
+}

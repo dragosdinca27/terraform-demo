@@ -12,7 +12,7 @@ resource "azurerm_network_security_group" "networkSecurityGroup" {
 }
 
 resource "azurerm_network_security_rule" "networkRule" {
-  for_each = local.priority-port
+  for_each = var.priority-port
   name                        = "port-rule-${each.key}"
   priority                    = each.key
   direction                   = "Outbound"
